@@ -13,6 +13,12 @@ class FunctionsTest: StringSpec() {
                 add(x)(y) == x + y
             }
         }
+
+        "mult" {
+            forAll { x: Int, y: Int ->
+                mult(x)(y) == x * y
+            }
+        }
     }
 }
 
