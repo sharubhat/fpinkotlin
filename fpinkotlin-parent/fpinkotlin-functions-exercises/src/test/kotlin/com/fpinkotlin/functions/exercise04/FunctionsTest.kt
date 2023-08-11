@@ -1,6 +1,5 @@
 package com.fpinkotlin.functions.exercise04
 
-
 import io.kotlintest.properties.forAll
 import io.kotlintest.specs.StringSpec
 
@@ -13,6 +12,12 @@ class FunctionsTest: StringSpec() {
         "compose" {
             forAll { x: Int ->
                 compose(::square)(::triple)(x) == square(triple(x))
+            }
+        }
+
+        "compose2" {
+            forAll { x: Int ->
+                compose2(::square)(::triple)(x) == square(triple(x))
             }
         }
     }
