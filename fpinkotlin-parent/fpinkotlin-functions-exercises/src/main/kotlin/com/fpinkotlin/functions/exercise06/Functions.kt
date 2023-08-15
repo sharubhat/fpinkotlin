@@ -20,9 +20,10 @@ fun <T, U, V> higherCompose(): ((U) -> V) -> ((T) -> U) -> (T) -> V =
         }
     }
 
-fun <T, U, V> higherAndThen() =
-        { g: (T) -> U ->
-            { f: (U) -> V -> {
-                x: T -> f(g(x)) }
-            }
-        }
+/*
+result of higherAndThen is of type (T) -> V
+obtained by first applying f on x resulting in type of f (T) -> U
+g is applied on f which produces U. Type of g becomes (U) -> V
+f ° g ° x will be of type ((T) -> U) -> ((U) -> V) -> (T) -> V
+ */
+fun <T, U , V> higherAndThen(): ((T) -> U) -> ((U) -> V) -> (T) -> V = { f -> { g -> { g(f(it))}} }
