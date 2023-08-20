@@ -9,7 +9,7 @@ class ListTest: StringSpec() {
 
         "add" {
             forAll { a: Int, b: Int ->
-                a <= 0 || b <= 0 || add2(a, b) == a + b
+                a <= 0 || b <= 0 || add(a, b) == a + b
             }
         }
     }
